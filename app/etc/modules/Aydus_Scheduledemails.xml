@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Scheduled Emails module
+ *
+ * @category    Aydus
+ * @package     Aydus_Scheduledemails
+ * @author     	Aydus <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_Scheduledemails>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Aydus_Scheduledemails>
+    </modules>
+</config>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Scheduled Emails admin layout
+ *
+ * @category    Aydus
+ * @package     Aydus_Scheduledemails
+ * @author     	Aydus Consulting <davidt@aydus.com>
+ */
+-->
+
+<layout>
+
+    <adminhtml_campaign_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/email</menupath>
+            </action>
+        </reference>    
+        <reference name="content">
+            <block type="aydus_scheduledemails/adminhtml_campaign" name="campaign" />
+        </reference>
+    </adminhtml_campaign_index>
+    
+    <adminhtml_campaign_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aydus_scheduledemails/adminhtml_campaign_grid" name="campaign_grid"/>
+        </block>
+    </adminhtml_campaign_grid>
+    
+    <!-- Edit -->
+    <adminhtml_campaign_new>
+        <update handle="adminhtml_campaign_edit" />
+    </adminhtml_campaign_new>
+    
+    <adminhtml_campaign_edit>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/email</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="aydus_scheduledemails/adminhtml_campaign_edit" name="campaign_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="aydus_scheduledemails/adminhtml_campaign_edit_tabs" name="campaign_edit_tabs">
+
+                <block type="aydus_scheduledemails/adminhtml_campaign_edit_tabs_detail" name="campaign_detail" />
+                <action method="addTab"><name>campaign_detail</name><block>campaign_detail</block></action>
+
+                <!-- <block type="scheduledemails/adminhtml_campaign_edit_tabs_email" name="campaign_email" />
+                <action method="addTab"><name>campaign_email</name><block>campaign_emails</block></action> -->
+
+            </block>        
+        </reference>
+    </adminhtml_campaign_edit>
+    
+    
+</layout>

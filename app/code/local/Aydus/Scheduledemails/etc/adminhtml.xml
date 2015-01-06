@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Scheduled Emails adminhtml config
+ *
+ * @category    Aydus
+ * @package     Aydus_Scheduledemails
+ * @author     	Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <menu>
+        <system>
+            <children>
+            	<email_template>
+            		<children>
+		                <aydus_scheduledemails translate="title" module="aydus_scheduledemails">
+		                    <title>Scheduled Emails</title>
+				            <action>adminhtml/campaign</action>
+		                </aydus_scheduledemails>
+            		</children>
+            	</email_template>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <block translate="title">
+                                <title>Scheduled Emails</title>
+                                <sort_order>10</sort_order>
+                            </block>
+                            <aydus_scheduledemails translate="title" module="aydus_scheduledemails">
+                                <title>Scheduled Emails</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <save translate="title">
+                                        <title>Save Campaign</title>
+                                        <sort_order>0</sort_order>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Campaign</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </aydus_scheduledemails>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

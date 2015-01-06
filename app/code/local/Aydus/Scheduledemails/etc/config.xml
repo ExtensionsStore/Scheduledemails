@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Scheduled Emails config
+ *
+ * @category    Aydus
+ * @package     Aydus_Scheduledemails
+ * @author     	Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_Scheduledemails>
+            <version>1.0.0</version>
+        </Aydus_Scheduledemails>
+    </modules>
+    <admin>
+        <routers>
+             <adminhtml>
+                 <args>
+                     <modules>
+                         <aydus_scheduledemails_campaign before="Mage_Adminhtml">Aydus_Scheduledemails_Adminhtml</aydus_scheduledemails_campaign>
+                     </modules>
+                 </args>
+             </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+    	<layout>
+	        <updates>
+	            <aydus_scheduledemails>
+	                <file>aydus/scheduledemails.xml</file>
+	            </aydus_scheduledemails>
+	        </updates>
+    	</layout>
+    </adminhtml>
+    <crontab>
+        <jobs>
+            <aydus_scheduledemails_schedulecampaigns>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>aydus_scheduledemails/campaign::scheduleEmails</model>
+                </run>
+            </aydus_scheduledemails_schedulecampaigns>
+            <aydus_scheduledemails_runcampaign>
+                <schedule>
+                    <cron_expr>0 5 31 2 *</cron_expr>
+                </schedule>
+                <run>
+                    <model>aydus_scheduledemails/campaign::runCampaign</model>
+                </run>
+            </aydus_scheduledemails_runcampaign>            
+        </jobs>
+    </crontab>
+    <global>
+        <blocks>
+            <aydus_scheduledemails>
+                <class>Aydus_Scheduledemails_Block</class>
+            </aydus_scheduledemails>
+        </blocks>
+        <models>
+            <aydus_scheduledemails>
+                <class>Aydus_Scheduledemails_Model</class>
+                <resourceModel>aydus_scheduledemails_resource</resourceModel>
+            </aydus_scheduledemails>
+            <aydus_scheduledemails_resource>
+                <class>Aydus_Scheduledemails_Model_Resource</class>
+                <entities>
+                    <campaign>
+                        <table>aydus_scheduledemails_campaign</table>
+                    </campaign>
+                    <campaign_schedule>
+                        <table>aydus_scheduledemails_campaign_schedule</table>
+                    </campaign_schedule>
+                    <campaign_customer>
+                        <table>aydus_scheduledemails_campaign_customer</table>
+                    </campaign_customer>
+                </entities>
+            </aydus_scheduledemails_resource>
+        </models>
+        <helpers>
+            <aydus_scheduledemails>
+                <class>Aydus_Scheduledemails_Helper</class>
+            </aydus_scheduledemails>
+        </helpers>            
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <scheduledemails_registerorder>
+                        <class>scheduledemails/observer</class>
+                        <method>registerOrder</method>
+                    </scheduledemails_registerorder>
+                </observers>
+            </sales_order_place_after>
+        </events>    
+        <resources>
+            <aydus_scheduledemails_setup>
+                <setup>
+                    <module>Aydus_Scheduledemails</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </aydus_scheduledemails_setup>        
+        </resources>            
+    </global>   
+</config>
