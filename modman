@@ -1,4 +1,4 @@
-app/code/local/Aydus/Scheduledemails                                     app/code/local/Aydus/Scheduledemails/
+app/code/community/Aydus/Scheduledemails                                 app/code/community/Aydus/Scheduledemails/
 app/design/adminhtml/default/default/layout/aydus/scheduledemails.xml    app/design/adminhtml/default/default/layout/aydus/
 app/etc/modules/Aydus_Scheduledemails.xml                                app/etc/modules/
 
