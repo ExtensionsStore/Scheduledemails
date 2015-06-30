@@ -1,0 +1,18 @@
+{
+    "name": "aydus/scheduledemails",
+    "license": "GPL-3.0",
+    "type": "magento-module",
+    "description": "Regularly send out emails to customers who have bought specific products. ",
+    "homepage": "https://github.com/aydus/Scheduledemails.git",
+    "require": {
+        "php": ">=5.3",
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "authors": [
+        {
+            "name": "David Tay",
+            "email": "davidt@aydus.com",
+            "role": "Author/Maintainer"
+        }
+    ]
+}
